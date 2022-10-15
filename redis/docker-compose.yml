@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  redis:
+    image: redis:${REDIS_VERSION}
+    container_name: redis-${ID}
+    volumes:
+      - ${REDIS_VOLUME}:/data
+#      - ./conf/redis.conf:/usr/local/conf/redis.conf
+    ports:
+      - '${REDIS_EXT_PORT}:6379'
+networks:
+  devh-network:
+    external: true
+
